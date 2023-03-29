@@ -19,7 +19,7 @@ import kotlin.math.ceil
 private const val TAG = "DLSViewModel"
 
 @HiltViewModel
-class DLSViewModel @Inject constructor(
+class DlsViewModel @Inject constructor(
     private val repository: BaseRepository
 ) : ViewModel() {
 

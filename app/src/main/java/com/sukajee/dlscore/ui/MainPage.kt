@@ -1,6 +1,5 @@
 package com.sukajee.dlscore.ui
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
@@ -20,13 +19,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sukajee.dlscore.R
 
 @Composable
-fun MainPage(viewModel: DLSViewModel) {
+fun MainPage(viewModel: DlsViewModel) {
     Scaffold(
         modifier = Modifier,
         topBar = {
