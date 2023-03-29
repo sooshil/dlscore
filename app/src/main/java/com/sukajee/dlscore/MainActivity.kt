@@ -7,7 +7,9 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.sukajee.dlscore.ui.DlsViewModel
 import com.sukajee.dlscore.ui.MainPage
 import com.sukajee.dlscore.ui.theme.DlscoreTheme
@@ -31,9 +33,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun AppPreview() {
-//    MainPage()
-//}
