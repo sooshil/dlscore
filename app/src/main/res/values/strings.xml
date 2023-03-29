@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">dlscore</string>
+    <string name="team_A_runs">Team A Runs</string>
+    <string name="team_A_wickets">Team A Wickets</string>
+    <string name="team_B_overs">Team B Overs</string>
+    <string name="team_B_wickets">Team B Wickets</string>
+    <string name="maximum_overs">Maximum Overs</string>
+    <string name="reset">Reset</string>
+    <string name="calculate">Calculate</string>
+    <string name="dls_calculator">DLS Calculator</string>
 </resources>

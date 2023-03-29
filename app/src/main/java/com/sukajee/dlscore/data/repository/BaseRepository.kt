@@ -4,5 +4,5 @@ import com.sukajee.dlscore.data.models.ResourcesResponse
 
 interface BaseRepository {
 
-    fun getData(): ResourcesResponse
+    suspend fun getData(): ResourcesResponse
 }

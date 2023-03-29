@@ -18,24 +18,29 @@ fun DLSTextField(
     onValueChange: (String) -> Unit,
     label: String,
     maxChar: Int,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    decimalAllowed: Boolean = false
 ) {
     OutlinedTextField(
         value = value,
         onValueChange = { text ->
-            if(text.isDigit()) onValueChange(text.take(maxChar))
+            if (decimalAllowed.not()) {
+                if (text.isDigit()) onValueChange(text.take(maxChar))
+            } else {
+                if (text.isDigitOrDecimal()) onValueChange(text.take(maxChar + 2))
+            }
         },
         label = { Text(label) },
         modifier = modifier.fillMaxWidth(),
         keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.NumberPassword,
+            keyboardType = if (decimalAllowed) KeyboardType.Decimal else KeyboardType.NumberPassword,
             imeAction = ImeAction.Next
         ),
         visualTransformation = VisualTransformation.None,
         maxLines = 1,
         singleLine = true,
         colors = TextFieldDefaults.textFieldColors(
-            /*backgroundColor = Color.Green.copy(alpha = 0.1f),*/
+            backgroundColor = Color.Green.copy(alpha = 0.05f),
             cursorColor = Color.Blue,
             focusedIndicatorColor = Color.Green.copy(0.9f),
             unfocusedIndicatorColor = Color.Green.copy(0.3f),
@@ -46,7 +51,15 @@ fun DLSTextField(
 
 fun String.isDigit(): Boolean {
     this.forEach {
-        if(it.isDigit().not()) return false
+        if (it.isDigit().not()) return false
+    }
+    return true
+}
+
+val allowedCharacterList = listOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.')
+fun String.isDigitOrDecimal(): Boolean {
+    this.forEach {
+        if (allowedCharacterList.contains(it).not()) return false
     }
     return true
 }
