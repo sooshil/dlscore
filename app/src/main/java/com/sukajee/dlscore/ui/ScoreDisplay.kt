@@ -31,10 +31,16 @@ fun ScoreDisplay(
         exit = fadeOut() + shrinkVertically()
     ) {
         Column {
+            Spacer(modifier = Modifier.height(4.dp))
             Card(
                 elevation = 0.dp,
                 backgroundColor = Color.Green.copy(alpha = 0.2f),
-                shape = RoundedCornerShape(16.dp)
+                shape = RoundedCornerShape(16.dp),
+                border = BorderStroke(
+                    width = 2.dp,
+                    color = Color.Green.copy(0.3f
+                    )
+                )
             ) {
                 Column(
                     modifier = Modifier
@@ -61,7 +67,7 @@ fun ScoreDisplay(
                     )
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }

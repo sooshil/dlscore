@@ -1,5 +1,6 @@
 package com.sukajee.dlscore.ui
 
+import android.widget.ProgressBar
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
@@ -149,22 +150,34 @@ fun MainPage(viewModel: DlsViewModel) {
                     )
                 }
                 Spacer(modifier = Modifier.width(16.dp))
-                Button(
-                    onClick = { viewModel.calculate() },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(0.5f)
-                        .height(48.dp)
-                        .clip(RoundedCornerShape(corner = CornerSize(24.dp))),
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.Red.copy(alpha = 0.9f),
-                        contentColor = Color.White
-                    )
+                Box(modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(0.5f),
+                    contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        text = stringResource(R.string.calculate).uppercase(),
-                        fontSize = 18.sp
-                    )
+                    Button(
+                        onClick = { viewModel.calculate() },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp)
+                            .clip(RoundedCornerShape(corner = CornerSize(24.dp))),
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Red.copy(alpha = 0.9f),
+                            contentColor = Color.White
+                        )
+                    ) {
+                        Text(
+                            text = if(uiState.isLoading.not()) stringResource(R.string.calculate).uppercase() else "",
+                            fontSize = 18.sp
+                        )
+                    }
+                    if(uiState.isLoading) {
+                        CircularProgressIndicator(
+                            color = Color(0xFF2B696F),
+                            strokeWidth = 4.dp,
+                            modifier = Modifier.size(36.dp)
+                        )
+                    }
                 }
             }
         }

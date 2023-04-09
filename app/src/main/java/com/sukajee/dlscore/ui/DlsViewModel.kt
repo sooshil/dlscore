@@ -102,6 +102,7 @@ class DlsViewModel @Inject constructor(
             }
             return
         }
+        shouldShowLoading(true)
         val oversOnlyFromMaxOvers = maxOvers.toDouble().toInt()
         val ballsOnlyFromMaxOvers =
             ((maxOvers.toDouble() - oversOnlyFromMaxOvers).round(1)).times(10)
@@ -134,6 +135,15 @@ class DlsViewModel @Inject constructor(
                     targetRunForTeamB = ceil(parScore).toInt()
                 )
             }
+        }
+       shouldShowLoading(false)
+    }
+
+    private fun shouldShowLoading(should: Boolean) {
+        _uiState.update { currentState ->
+            currentState.copy(
+                isLoading = should
+            )
         }
     }
 

@@ -26,6 +26,7 @@ fun ErrorDisplay(
         exit = fadeOut() + shrinkVertically()
     ) {
         Column {
+            Spacer(modifier = Modifier.height(4.dp))
             Card(
                 elevation = 0.dp,
                 backgroundColor = Color(0xFFFAC7E5),
@@ -55,7 +56,7 @@ fun ErrorDisplay(
                     )
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }
